@@ -1,0 +1,23 @@
+import javax.swing.JOptionPane;
+
+public class KreisberechnungGUI {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		double radius, umfang, flaeche,temp1, temp2;
+		String einheit, eingabe, temp;
+		eingabe = JOptionPane.showInputDialog("Geben Sie den Kreisradius ein: ");
+		radius = Double.parseDouble(eingabe);
+		temp = eingabe;
+		eingabe = JOptionPane.showInputDialog("Geben Sie die Einheit ein: ");
+		einheit = eingabe;
+		umfang = 2.0 * Math.PI * radius;
+		flaeche = Math.PI * radius *radius;
+		temp1 = Math.round(flaeche*100) /100 ;
+		flaeche = temp1;
+		temp2 = Math.round(umfang*100)/100;
+		umfang = temp2;
+		JOptionPane.showMessageDialog(null, "Radius: "+ temp + "\n Umfang: " + umfang + "\n Fläche: " +
+		 flaeche + einheit + " " + '\u00b2', "Ausgabe",0);
+	}
+}
