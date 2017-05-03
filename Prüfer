@@ -1,0 +1,24 @@
+import javax.swing.JOptionPane;
+
+public class Prüfert {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String eingabe;
+		double eingabe1;
+		
+		eingabe = JOptionPane.showInputDialog("Bitte Zahl eingeben.");
+		
+		eingabe1 = Double.parseDouble(eingabe);
+		
+		if(eingabe1 < 0) {
+			
+		JOptionPane.showMessageDialog(null, "Die eingegebene Zahl ist im Negativbereich.");	
+		}
+			else {
+				JOptionPane.showMessageDialog(null, "Die eingegebene Zahl ist im Positivenbereich.");
+			}
+		 
+	}
+
+}
