@@ -1,0 +1,48 @@
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class Schaltjahr {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Integer reply = 1;
+		do{
+		try {
+		double jahr = Double.parseDouble(JOptionPane.showInputDialog(null, "Bitte Jahr eingeben."));
+		
+		boolean tage = false;
+		double test = jahr % 4;
+		if (test==0) {
+			tage =true;
+			double test1 = jahr % 100;
+			if (test1 == 0) {
+				tage = false;
+				double test2 = jahr % 400;
+				if (test2 ==0) {
+					tage = true;
+				}
+			}
+		}
+		
+		if (tage == true) {
+			JOptionPane.showMessageDialog(null, "Das Jahr "+(int)(jahr)+ " ist ein Schaltjahr.");
+						
+			
+		}
+		if(tage == false){
+			JOptionPane.showMessageDialog(null, "Das Jahr "+ (int)(jahr) + " ist kein Schaltjahr.");
+		
+		}
+		reply = JOptionPane.showConfirmDialog(null, "Möchten Sie noch das Programm nochmal nutzen.","Beenden",
+				JOptionPane.YES_NO_OPTION);
+		
+		
+		}catch (NumberFormatException e){
+			JOptionPane.showMessageDialog(null, "Error");
+			System.exit(0);
+		}
+	}while (reply == 0);
+	System.exit(0);
+	}
+		
+}
