@@ -1,0 +1,49 @@
+import javax.swing.JOptionPane;
+
+public class Rechener {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Double Zahl1, Zahl2, erg = 0.0;
+		String OP;
+		Integer retry = 1;
+		boolean aus = false;
+		JOptionPane.showMessageDialog(null, "Taschenrechner für Grundrechenarten.");
+		do {		
+		try {
+		Zahl1 = Double.parseDouble(JOptionPane.showInputDialog(null, "Bitte die Zahl1 eingeben", "10"));
+		OP = JOptionPane.showInputDialog(null, "Bitte Rechenzeichen eingeben.", "+");
+		Zahl2 = Double.parseDouble(JOptionPane.showInputDialog(null, "Bitte die Zahl2 eingeben","10"));
+		switch (OP) {
+		case "+": erg = Zahl1 + Zahl2;
+		aus=true;
+		break;
+		case "-": erg = Zahl1 - Zahl2;
+		aus=true;
+		break;
+		case "*": erg = Zahl1 * Zahl2;
+		aus=true;
+		break;
+		case "/": 
+			if (Zahl2 == 0) {
+				JOptionPane.showMessageDialog(null, "Dividieren durch 0 nicht möglich");
+			}else {
+				erg = Zahl1 / Zahl2;
+				aus=true;			}
+			break;
+		default: JOptionPane.showMessageDialog(null, "Falsche Eingabe.");
+			break;
+		}
+		if (aus==true) {
+			JOptionPane.showMessageDialog(null, "Das Ergebniss ist: " + erg);
+		}
+		retry = JOptionPane.showConfirmDialog(null, "Möchten Sie noch das Programm nochmal nutzen.","Beenden",
+				JOptionPane.YES_NO_OPTION);
+				
+		}catch (NumberFormatException e){
+			JOptionPane.showMessageDialog(null, "Error");
+			System.exit(0);
+		}
+		} while (retry == 0);
+	}
+}
